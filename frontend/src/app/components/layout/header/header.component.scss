@@ -1,0 +1,226 @@
+.main-header {
+  background-color: #111;
+  color: white;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  img {
+    height: 40px;
+  }
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      margin: 0 15px;
+      
+      a {
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.3s;
+        
+        &:hover {
+          color: #007bff;
+        }
+      }
+    }
+  }
+}
+
+.auth-buttons {
+  display: flex;
+  margin-left: 20px;
+  
+  .login-btn, .register-btn {
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s;
+  }
+  
+  .login-btn {
+    color: white;
+    margin-right: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  .register-btn {
+    background-color: #007bff;
+    color: white;
+    
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+  
+  .user-dropdown {
+    position: relative;
+    
+    .user-btn {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 500;
+      
+      i {
+        margin-left: 8px;
+      }
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+    
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      display: none;
+      overflow: hidden;
+      min-width: 150px;
+      margin-top: 5px;
+      
+      a {
+        display: block;
+        padding: 10px 15px;
+        color: #333;
+        text-decoration: none;
+        font-size: 14px;
+        transition: background-color 0.3s;
+        
+        &:hover {
+          background-color: #f5f5f5;
+        }
+      }
+    }
+    
+    &:hover .dropdown-menu {
+      display: block;
+    }
+  }
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .menu-toggle {
+    display: block;
+  }
+  
+  .main-nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: #111;
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.3s;
+    overflow-y: auto;
+    max-height: calc(100vh - 70px);
+    z-index: 999;
+    
+    &.open {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .nav-links {
+      flex-direction: column;
+      width: 100%;
+      
+      li {
+        margin: 10px 0;
+        
+        a {
+          display: block;
+          padding: 5px 0;
+        }
+      }
+    }
+    
+    .auth-buttons {
+      margin: 20px 0 0 0;
+      width: 100%;
+      flex-direction: column;
+      
+      .login-btn, .register-btn, .user-btn {
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+      }
+      
+      .user-dropdown {
+        width: 100%;
+        
+        .dropdown-menu {
+          position: static;
+          display: block;
+          box-shadow: none;
+          margin-top: 10px;
+          background-color: #222;
+          
+          a {
+            color: white;
+            
+            &:hover {
+              background-color: #333;
+            }
+          }
+        }
+      }
+    }
+  }
+}
