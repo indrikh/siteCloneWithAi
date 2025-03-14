@@ -1,0 +1,19 @@
+<div class="app-container">
+  <app-header></app-header>
+  
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+  
+  <app-footer></app-footer>
+  
+  <!-- AI Chat Assistant Button -->
+  <div class="chat-button" (click)="toggleChat()">
+    <div class="chat-icon">
+      <i class="fa-solid fa-comments"></i>
+    </div>
+  </div>
+  
+  <!-- AI Chat Assistant Component -->
+  <app-chat *ngIf="showChat" (closeChat)="toggleChat()"></app-chat>
+</div>
