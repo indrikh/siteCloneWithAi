@@ -1,0 +1,45 @@
+<header class="main-header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <a routerLink="/">
+          <img src="assets/images/logo.png" alt="Majestic RP Clone">
+        </a>
+      </div>
+      
+      <nav class="main-nav" [class.open]="isMenuOpen">
+        <ul class="nav-links">
+          <li><a routerLink="/download" (click)="closeMenu()">Скачать</a></li>
+          <li><a href="#" target="_blank" (click)="closeMenu()">Форум</a></li>
+          <li><a href="#" target="_blank" (click)="closeMenu()">Discord</a></li>
+          <li><a routerLink="/about" (click)="closeMenu()">О проекте</a></li>
+          <li><a href="#" target="_blank" (click)="closeMenu()">Wiki</a></li>
+        </ul>
+        
+        <div class="auth-buttons">
+          <ng-container *ngIf="!isAuthenticated; else userActions">
+            <a routerLink="/login" class="login-btn" (click)="closeMenu()">Войти</a>
+            <a routerLink="/register" class="register-btn" (click)="closeMenu()">Регистрация</a>
+          </ng-container>
+          
+          <ng-template #userActions>
+            <div class="user-dropdown">
+              <button class="user-btn">
+                {{ username }}
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="dropdown-menu">
+                <a routerLink="/profile" (click)="closeMenu()">Профиль</a>
+                <a href="javascript:void(0)" (click)="logout()">Выйти</a>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </nav>
+      
+      <button class="menu-toggle" (click)="toggleMenu()">
+        <i class="fa-solid" [ngClass]="{'fa-bars': !isMenuOpen, 'fa-times': isMenuOpen}"></i>
+      </button>
+    </div>
+  </div>
+</header>
