@@ -1,0 +1,43 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Angular output
+frontend/dist/
+frontend/.angular/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-*
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Redis data
+dump.rdb
+redis-data/
+
+# Build files
+build/
+dist/
+
+# Testing
+coverage/
+
+# Temporary files
+tmp/
+temp/
